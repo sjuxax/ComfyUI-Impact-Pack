@@ -383,9 +383,9 @@ class MakeImageBatch:
     CATEGORY = "ImpactPack/Util"
 
     def doit(self, **kwargs):
-        image1 = kwargs['image1']
-        del kwargs['image1']
-        images = [value for value in kwargs.values()]
+        images = [value for value in kwargs.values() if value is not None]
+        image1 = images[0]
+        del images[0]
 
         if len(images) == 0:
             return (image1,)
