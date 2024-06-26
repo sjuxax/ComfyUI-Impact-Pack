@@ -263,6 +263,7 @@ NODE_CLASS_MAPPINGS = {
 
     "ImpactCompare": ImpactCompare,
     "ImpactConditionalBranch": ImpactConditionalBranch,
+    "ImpactConditionalPassthru": ImpactConditionalPassthru,
     "ImpactConditionalBranchSelMode": ImpactConditionalBranchSelMode,
     "ImpactIfNone": ImpactIfNone,
     "ImpactConvertDataType": ImpactConvertDataType,

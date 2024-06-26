@@ -82,6 +82,30 @@ class ImpactConditionalBranch:
         else:
             return (ff_value,)
 
+class ImpactConditionalPassthru:
+    @classmethod
+    def INPUT_TYPES(cls):
+        return {
+            "required": {
+                "cond": ("BOOLEAN",),
+            },
+            "optional": {
+                "tt_value": (any_typ,),
+            }
+        }
+
+    FUNCTION = "doit"
+    CATEGORY = "ImpactPack/Logic"
+
+    RETURN_TYPES = (any_typ, )
+
+    def doit(self, cond, tt_value=None):
+        if cond:
+            return (tt_value,)
+        else:
+            return (None,)
+
+
 
 class ImpactConditionalBranchSelMode:
     @classmethod

@@ -257,7 +257,7 @@ app.registerExtension({
 			}
 		}
 
-		if(nodeData.name == "ImpactConditionalBranch" || nodeData.name == "ImpactConditionalBranchSelMode") {
+		if(nodeData.name == "ImpactConditionalBranch" || nodeData.name == "ImpactConditionalPassthru" || nodeData.name == "ImpactConditionalBranchSelMode") {
 			const onConnectionsChange = nodeType.prototype.onConnectionsChange;
 			nodeType.prototype.onConnectionsChange = function (type, index, connected, link_info) {
 				if(!link_info || this.inputs[0].type != '*')
@@ -278,7 +278,9 @@ app.registerExtension({
 				}
 
 				this.inputs[0].type = slot_type;
-				this.inputs[1].type = slot_type;
+				if (this.inputs.length() > 1) {
+					this.inputs[1].type = slot_type;
+				}
 				this.outputs[0].type = slot_type;
 				this.outputs[0].label = slot_type;
 			}
